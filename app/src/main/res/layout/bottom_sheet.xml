@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:behavior_peekHeight="?actionBarSize"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <!--expand to top android:layout_height="match_parent"-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="@drawable/bs_backgroung"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="-16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/bSTop"
+            android:background="@color/xiaomi_grey_light"></LinearLayout>
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:maxHeight="3dp"
+            android:minHeight="3dp"
+            android:progressDrawable="@drawable/custom_seekbar_ruler"
+            android:thumb="@drawable/custom_seekbar_slider"
+            app:layout_constraintStart_toEndOf="@+id/textsStart"
+            app:layout_constraintTop_toBottomOf="@+id/bSTop">
+
+        </SeekBar>
+
+        <TextView
+            android:id="@+id/textsStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01:03"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/xiaomi_grey_dark"
+            app:layout_constraintEnd_toStartOf="@+id/seekBar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/seekBar"></TextView>
+
+
+        <RelativeLayout
+            android:id="@+id/bSTop"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="3dp"
+            android:background="@drawable/bs_backgroung_top"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/linearButtons"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/bPlay"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/ic_play"
+                    android:backgroundTint="@color/xiaomi_orange"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/bStop"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/ic_stop"
+                    android:backgroundTint="@color/xiaomi_grey_dark"
+                    app:layout_constraintBottom_toBottomOf="@+id/bPlay"
+                    app:layout_constraintStart_toEndOf="@+id/bPlay"
+                    app:layout_constraintTop_toTopOf="@+id/bPlay"></Button>
+
+                <TextView
+                    android:id="@+id/stage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10dp"
+                    android:text="1"
+                    android:textColor="@color/xiaomi_black"
+                    android:textSize="36sp"
+                    app:layout_constraintEnd_toStartOf="@+id/dash"
+                    app:layout_constraintTop_toTopOf="@+id/dash"></TextView>
+
+                <TextView
+                    android:id="@+id/dash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="-"
+                    android:textColor="@color/xiaomi_black"
+
+                    android:textSize="36sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                <TextView
+                    android:id="@+id/section"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:text="1"
+                    android:textColor="@color/xiaomi_black"
+                    android:textSize="36sp"
+                    app:layout_constraintStart_toEndOf="@+id/dash"
+                    app:layout_constraintTop_toTopOf="@+id/dash"></TextView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="Szacunkowa prędkość: "
+            android:textColor="@color/xiaomi_grey_dark"
+            app:layout_constraintStart_toStartOf="@+id/textsStart"
+            app:layout_constraintTop_toBottomOf="@+id/textsStart"></TextView>
+
+        <TextView
+            android:id="@+id/tSpeed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/xiaomi_black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" km/h"
+            android:textColor="@color/xiaomi_grey_dark"
+            app:layout_constraintStart_toEndOf="@+id/tSpeed"
+            app:layout_constraintTop_toTopOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="Szacunkowy dystans: "
+            android:textColor="@color/xiaomi_grey_dark"
+            app:layout_constraintStart_toStartOf="@+id/textView3"
+            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <TextView
+            android:id="@+id/textDistance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="@color/xiaomi_black"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" m"
+            android:textColor="@color/xiaomi_grey_dark"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
+            app:layout_constraintStart_toEndOf="@+id/textDistance" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

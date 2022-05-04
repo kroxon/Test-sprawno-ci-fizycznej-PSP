@@ -1,0 +1,719 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:theme="@style/Theme.AppCompat.Light.NoActionBar"
+    tools:context="com.beeptest_testsprawnocifizycznejpsp.MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/layoutPoints"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:focusableInTouchMode="true"
+            android:gravity="center"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="@+id/linearRank"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/linearRank">
+
+                <TextView
+                    android:id="@+id/pointsTextView"
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="0"
+                    android:textColor="@color/xiaomi_black"
+                    android:textSize="32sp"></TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text=" pkt"
+                    android:textColor="@color/xiaomi_grey_light"
+                    android:textSize="24sp"></TextView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearRank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="2"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintStart_toEndOf="@+id/linearLayout"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="ocena:"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        android:textSize="14sp"></TextView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvRank"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="5"
+                        android:textColor="@color/xiaomi_black"
+                        android:textSize="25sp"></TextView>
+
+                    <TextView
+                        android:id="@+id/tvRankDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:text="bardzo dobra"
+                        android:textColor="@color/xiaomi_orange"
+                        android:textSize="20sp"></TextView>
+                </LinearLayout>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/bInfo"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:clickable="true"
+                android:src="@drawable/ic_info"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/xiaomi_grey_light"></ImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="4dp"
+            android:background="@color/xiaomi_grey_light"
+            app:layout_constraintTop_toBottomOf="@id/layoutPoints"></LinearLayout>
+
+        <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/layoutPoints">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <RadioGroup
+                    android:id="@+id/radiogroupSex"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="60dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <RadioButton
+                        android:id="@+id/rbmen"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_weight="1"
+                        android:checked="true"></RadioButton>
+
+                    <RadioButton
+                        android:id="@+id/rbwomen"
+                        android:layout_width="36dp"
+                        android:layout_height="36dp"
+                        android:layout_marginLeft="60dp"
+                        android:layout_weight="1"
+                        android:gravity="center"></RadioButton>
+
+                </RadioGroup>
+
+                <LinearLayout
+                    android:id="@+id/layoutSexTexts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/radiogroupSex"
+                    app:layout_constraintStart_toStartOf="@+id/radiogroupSex"
+                    app:layout_constraintTop_toBottomOf="@+id/radiogroupSex">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tvMen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:gravity="center"
+                            android:background="@drawable/button_bg_click"
+                            android:clickable="true"
+                            android:elevation="0dp"
+                            android:padding="5dp"
+                            android:text="mężczyźni oraz kobiety birące bezpośredni udział w działaniach ratowniczo-gaśniczych"
+                            android:textColor="@color/black"
+                            android:translationY="-5dp"
+                            android:translationZ="0dp"></TextView>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1">
+
+                        <TextView
+                            android:id="@+id/tvWomen"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:background="@drawable/button_bg_unclick"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:text="kobiety nie biorące udziau w działaniach ratowniczo-gaśniczych"
+                            android:textColor="@color/xiaomi_black"></TextView>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutAgePoints"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@id/layoutSexTexts">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="4dp"
+                        android:background="@color/xiaomi_grey_light"
+                        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+
+                    <TextView
+                        android:id="@+id/textviewPunktyPref"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="Punkty preferencyjne:"
+                        android:textColor="@color/xiaomi_black"
+                        android:textSize="25sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <RadioGroup
+                        android:id="@+id/rgAge"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textviewPunktyPref">
+
+                        <RadioButton
+                            android:id="@+id/rba29"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:checked="true"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rba34"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rba39"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rba44"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rba49"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"></RadioButton>
+
+                        <RadioButton
+                            android:id="@+id/rba50"
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"></RadioButton>
+                    </RadioGroup>
+
+
+                    <TextView
+                        android:id="@+id/tvage29"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/button_bg_click"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="do 29 lat"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        app:layout_constraintEnd_toStartOf="@+id/tvage34"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textviewPunktyPref"></TextView>
+
+                    <TextView
+                        android:id="@+id/tvage34"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/button_bg_unclick"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="30-34 lata"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        app:layout_constraintEnd_toStartOf="@+id/tvage39"
+                        app:layout_constraintStart_toEndOf="@+id/tvage29"
+                        app:layout_constraintTop_toTopOf="@+id/tvage29" />
+
+
+                    <TextView
+                        android:id="@+id/tvage39"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/button_bg_unclick"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="35-39 lat"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvage34"
+                        app:layout_constraintTop_toTopOf="@+id/tvage29" />
+
+
+                    <TextView
+                        android:id="@+id/tvage44"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/button_bg_unclick"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="40-44 lata"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        app:layout_constraintEnd_toStartOf="@+id/tvage49"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvage29" />
+
+
+                    <TextView
+                        android:id="@+id/tvage49"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/button_bg_unclick"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="45-49 lat"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        app:layout_constraintEnd_toStartOf="@+id/tvage50"
+                        app:layout_constraintStart_toEndOf="@+id/tvage44"
+                        app:layout_constraintTop_toTopOf="@+id/tvage44" />
+
+                    <TextView
+                        android:id="@+id/tvage50"
+                        android:layout_width="100dp"
+                        android:layout_height="36dp"
+                        android:background="@drawable/button_bg_unclick"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:text="50 i więcej lat"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/tvage49"
+                        app:layout_constraintTop_toTopOf="@+id/tvage49" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginVertical="15dp"
+                        android:background="@color/xiaomi_grey_light"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/tvage50"></LinearLayout>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutBeebtest"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutAgePoints">
+
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Beep Test"
+                        android:textColor="@color/xiaomi_black"
+                        android:textSize="25sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutStage"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                        app:layout_constraintEnd_toStartOf="@+id/textView18"
+                        app:layout_constraintTop_toTopOf="@+id/textView18">
+
+                        <Button
+                            android:id="@+id/bStagePlus"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/xiaomi_grey_light"
+                            android:gravity="center"
+                            android:textSize="18sp"></Button>
+
+                        <TextView
+                            android:id="@+id/stageCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="7"
+                            android:textColor="@color/xiaomi_black"
+                            android:textSize="25sp"></TextView>
+
+                        <Button
+                            android:id="@+id/bStageMinus"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/ic_remove"
+                            android:backgroundTint="@color/xiaomi_grey_light"
+
+                            android:textSize="18sp"></Button>
+
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/textView18"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="4dp"
+                        android:layout_marginTop="0dp"
+                        android:text="-"
+                        android:textColor="@color/xiaomi_orange"
+                        android:textSize="40sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/textView17"></TextView>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutSection"
+                        android:layout_width="50dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+                        app:layout_constraintStart_toEndOf="@+id/textView18"
+                        app:layout_constraintTop_toTopOf="@+id/textView18">
+
+                        <Button
+                            android:id="@+id/bSectionPlus"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/ic_add"
+                            android:backgroundTint="@color/xiaomi_grey_light"></Button>
+
+                        <TextView
+                            android:id="@+id/sectionCount"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="6"
+                            android:textColor="@color/xiaomi_black"
+                            android:textSize="25sp"></TextView>
+
+                        <Button
+                            android:id="@+id/bSectionMinus"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:background="@drawable/ic_remove"
+                            android:backgroundTint="@color/xiaomi_grey_light"></Button>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/layoutForFocus"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/xiaomi_grey_light"
+                        android:focusableInTouchMode="true"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/linearLayoutSection"></LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutEnvelope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutBeebtest"
+                    tools:layout_editor_absoluteX="8dp">
+
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Bieg po kopercie:"
+                        android:textColor="@color/xiaomi_black"
+                        android:textSize="25sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <EditText
+                        android:id="@+id/editTextEnvelope"
+                        android:layout_width="100dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/custom_input"
+                        android:gravity="center"
+                        android:hint="@string/hint1"
+                        android:imeOptions="actionDone"
+                        android:focusableInTouchMode="true"
+                        android:inputType="numberDecimal"
+                        android:maxLength="5"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@drawable/hint"
+                        android:textCursorDrawable="@drawable/custom_cursor"
+                        android:textSize="25sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Czas (s):  "
+                        android:textColor="@color/xiaomi_grey_dark"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/editTextEnvelope"
+                        app:layout_constraintEnd_toStartOf="@+id/editTextEnvelope"
+                        app:layout_constraintTop_toTopOf="@+id/editTextEnvelope"></TextView>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginHorizontal="12dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/xiaomi_grey_light"
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextEnvelope"></LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutRod"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:visibility="visible"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutEnvelope"
+                    tools:layout_editor_absoluteX="8dp">
+
+                    <TextView
+                        android:id="@+id/textView19"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Podciąganie się na drążku:"
+                        android:textColor="@color/xiaomi_black"
+                        android:textSize="25sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <TextView
+                        android:id="@+id/editTextRod"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="5dp"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:padding="0dp"
+                        android:text="13"
+                        android:textColor="@color/black"
+                        android:textSize="25sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView19" />
+
+                    <com.wefika.horizontalpicker.HorizontalPicker
+                        android:id="@+id/picker"
+                        android:layout_width="250dp"
+                        android:layout_height="35dp"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:marqueeRepeatLimit="-1"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp"
+                        android:textColor="@color/xiaomi_grey_dark"
+                        android:textSize="22sp"
+                        app:dividerSize="5dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/editTextRod"
+                        app:sideItems="2"
+                        app:values="@array/values" />
+
+                    <ImageView
+                        android:id="@+id/imgArrowRight"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:clickable="true"
+                        android:src="@drawable/ic_arrow_right"
+                        app:layout_constraintBottom_toBottomOf="@+id/picker"
+                        app:layout_constraintStart_toEndOf="@+id/picker"
+                        app:layout_constraintTop_toTopOf="@id/picker"
+                        app:tint="@color/xiaomi_orange"></ImageView>
+
+                    <ImageView
+                        android:id="@+id/imgArrowLeft"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:clickable="true"
+                        android:src="@drawable/ic_arrow_left"
+                        app:layout_constraintBottom_toBottomOf="@+id/picker"
+                        app:layout_constraintEnd_toStartOf="@+id/picker"
+                        app:layout_constraintTop_toTopOf="@id/picker"
+                        app:tint="@color/xiaomi_orange"></ImageView>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:maxLines="2"
+                        android:text="Liczba podciągnięć: "
+                        android:textColor="@color/xiaomi_grey_dark"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/editTextRod"
+                        app:layout_constraintEnd_toStartOf="@+id/editTextRod"
+                        app:layout_constraintTop_toTopOf="@+id/editTextRod"></TextView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/layoutBall"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
+                    android:visibility="gone"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutEnvelope"
+                    tools:layout_editor_absoluteX="8dp">
+
+                    <TextView
+                        android:id="@+id/textView21"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rzut piłką lekarską:"
+                        android:textColor="@color/xiaomi_black"
+                        android:textSize="25sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+                    <EditText
+                        android:id="@+id/editTextBall"
+                        android:layout_width="80dp"
+                        android:layout_height="40dp"
+                        android:layout_marginTop="8dp"
+                        android:background="@drawable/custom_input"
+                        android:focusableInTouchMode="true"
+                        android:gravity="center"
+                        android:hint="@string/hint2"
+                        android:imeOptions="actionDone"
+                        android:inputType="numberDecimal|numberSigned"
+                        android:maxLength="5"
+                        android:padding="5dp"
+                        android:textColor="@color/black"
+                        android:textColorHint="@drawable/hint"
+                        android:textCursorDrawable="@drawable/custom_cursor"
+                        android:textSize="25sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+                    <TextView
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:text="Odległość (m): "
+                        android:textColor="@color/xiaomi_grey_dark"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/editTextBall"
+                        app:layout_constraintEnd_toStartOf="@+id/editTextBall"
+                        app:layout_constraintTop_toTopOf="@+id/editTextBall"></TextView>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="200dp"
+                    app:layout_constraintTop_toBottomOf="@+id/layoutBall"></LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <include layout="@layout/bottom_sheet" />
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
