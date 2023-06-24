@@ -4,7 +4,7 @@
 
 
 
-## Opis
+## Description (PL)
 Aplikacja służąca do okresowej oceny sprawności fizycznej strażaków PSP zgodnie z najnowszym aktem prawnym. Posiada również odtwarzacz audio z oficjalnym plikiem mp3 "Beep test" dostępnym na stronie KG PSP. Aplikacja może posłużyć zarówno do treningów jak i do samego egzaminu.
 
 
